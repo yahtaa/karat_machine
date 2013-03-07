@@ -24,29 +24,36 @@ def fourteenK(grams)
   puts " "
 end
 
-puts "Please select a purity:"
-puts "(1)10k\n (2)14k\n (3)16k\n (4)18k\n (5)20k\n (6)22k\n (7)24k"
-prompt; karat = gets.chomp
-case
-when karat == '1'
-  karat = 0.417
-when karat == '2'
-  karat = 0.417
-when karat == '3'
-karat = 0.417
-when karat == '4'
-karat = 0.417
-when karat == '5'
-karat = 0.417
-when karat == '6'
-karat = 0.417
-when karat == '7'
-karat = 0.417
+def input
+  puts "Please select a purity:"
+  puts "(1)10k\n (2)14k\n (3)16k\n (4)18k\n (5)20k\n (6)22k\n (7)24k"
+  prompt; karat = gets.chomp
+  
+  case
+  when karat == '1'
+    karat = 0.417
+    puts "10k selected..."
+  when karat == '2'
+    karat = 0.585
+  when karat == '3'
+    karat = 0.666
+  when karat == '4'
+    karat = 0.75
+  when karat == '5'
+    karat = 0.833
+  when karat == '6'
+    karat = 0.916
+  when karat == '7'
+    karat = 1
+  else
+    put "Please Select a valid karat"
+    input()
+  end
+  
+  
+  puts "Please enter weight in grams: "
+  prompt; weight = gets.chomp.to_i
 
+end
 
-puts "Please enter weight in grams: "
-prompt; weight = gets.chomp.to_i
-
-tenK(weight)
-fourteenK(weight)
-
+input()
