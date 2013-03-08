@@ -68,12 +68,17 @@ end
   def weigh
     
     puts "Please enter weight in grams: "
-    prompt; $weight = gets.chomp.to_i
-    return :purity
+    prompt; $weight = gets.chomp.to_f
+    if $weight.abs != 0.000 
+      return :purity
+    else
+      puts "Please enter a valid weight."
+      return :weigh
+    end
   end
 
   def karatCalc
-    
+    delta = 0.01
     puts "#{$show} quotes @ #{@spot}."
     @melt_percent.each do |percent|
       formula = @spot * percent * $karat / 31.1 * $weight
